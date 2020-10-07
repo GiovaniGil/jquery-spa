@@ -1,48 +1,52 @@
 $(document).ready(function () {
     getMovies(prepareData);
+    var eixoX = null;
+    var eixoY = null;
 });
 
 function prepareData(filmesList) {
 
     var filmeTituloList = [];
     //Gráfico de linhas
-    filmeTituloList = filmesList.map(obj => { 
+    filmeTituloList = filmesList.map(obj => {
         return {
-            'titulo':obj.Title, 
+            'titulo': obj.Title,
             'rating': null,
             "ano": obj.Year.split('–')[0],
             "imdbID": obj.imdbID
-        } 
+        }
     });
 
-    $.each(filmeTituloList, function(index, value) {
+    $.each(filmeTituloList, function (index, value) {
         getDetails(value.imdbID, prepararGraficoLinha, filmeTituloList);
     });
     prepararGraficoBarras(filmesList);
+
 }
 
 function prepararGraficoLinha(filmesList, imdbID, response) {
     var index = filmesList.findIndex((obj => obj.imdbID == imdbID));
     filmesList[index].rating = response.imdbRating;
 
-    filmesList.sort(function(a, b){
+    filmesList.sort(function (a, b) {
         return a.ano - b.ano;
     });
 
-    var eixoX = filmesList.map(obj => obj.titulo + ' (' + obj.ano + ')');
-    var eixoY = filmesList.map(obj => obj.rating);
+    eixoX = filmesList.map(obj => obj.titulo + ' (' + obj.ano + ')');
+    eixoY = filmesList.map(obj => obj.rating);
 
-    gerarGraficoRatingAnoProducao(eixoX, eixoY);
+    if (filmesList.filter(el => el.rating == null).length <= 0)
+        gerarGraficoRatingAnoProducao(eixoX, eixoY);
 }
 
-function prepararGraficoBarras(filmesList){
+function prepararGraficoBarras(filmesList) {
     //gráfico de barras
     var filmeAnoList = [];
     filmeAnoList = filmesList.map(obj => obj.Year.split("–")[0]);
     var eixoXBar = ['<2000', '>=2000'];
     var eixoYBar = [0, 0];
-    $.each(filmeAnoList, function(index, value) {
-        if (value < 2000 )
+    $.each(filmeAnoList, function (index, value) {
+        if (value < 2000)
             eixoYBar[0] += 1;
         else
             eixoYBar[1] += 1;
