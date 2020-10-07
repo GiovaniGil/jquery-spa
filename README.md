@@ -4,7 +4,7 @@ Projeto de teste para consumir API (http://www.omdbapi.com) através de uma JPA 
 
 # Execução
 
-Rodar o arquivo index.html quer se encontra no diretório src (src/index.html).
+Adicionar o diretório do projeto em um servidor e executar o arquivo index.html quer se encontra no diretório src (src/index.html).
 
 # Bibliotecas
 
