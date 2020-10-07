@@ -1,0 +1,65 @@
+<div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">
+                        <span id="modal-title-text"></span>
+                        <i class="fa fa-star"></i>
+                        <span id="modal-title-rating"></span>
+                    </h4>
+                    <h6 class="modal-info"></h6>
+                </div>
+                <div class="modal-body">
+
+                    <div class="modal-grid">
+                        <img id="modal-image" src="" class="item__image">
+                        <div class="modal-data">
+                            <p><span class="modal-subtitle">Diretor: </span><span
+                                    id="modal-data-director">Diretor</span></p>
+                            <p><span class="modal-subtitle">Elenco: </span><span id="modal-data-cast">Elenco</span></p>
+                            <p><span class="modal-subtitle">História: </span><span id="modal-data-story">Elenco</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<style>
+    .modal-grid {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: 10px 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .modal-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .modal-title .fa-star {
+        color: #fbc531;
+    }
+
+    .modal-subtitle {
+        font-weight: 900;
+    }
+
+    .modal-data {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>

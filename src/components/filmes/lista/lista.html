@@ -1,0 +1,79 @@
+<div>
+    <h1>Filmes</h1>
+    <div class="items">
+    </div>
+    <div id="modal"></div>
+</div>
+
+<script type="text/javascript" src="./components/filmes/item/item.js"></script>
+<script type="text/javascript" src="./components/filmes/item/service.js"></script>
+<script type="text/javascript" src="./components/filmes/lista/service.js"></script>
+<script type="text/javascript" src="./components/filmes/lista/lista.js"></script>
+<script type="text/javascript" src="./components/modal/modal.js"></script>
+
+<style>
+    .items {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .items {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .items {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .item {
+        background-color: #fff;
+        max-width: 100%;
+        text-align: center;
+        font-size: 18px;
+        padding: 20px 15px;
+    }
+
+    .item:hover {
+        background: #33333317;
+    }
+
+    .item__controls {
+        font-size: 20px;
+        font-weight: bold;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 25px;
+        gap: 10px 10px;
+    }
+
+    .item__titulo {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .item__titulo a:link {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .item__ano {
+        font-size: 20px;
+        color: #333;
+        font-weight: 900;
+        line-height: 2em;
+    }
+
+    .item__image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 250px;
+        object-fit: contain;
+        padding: 15px 10px 10px;
+    }
+</style>

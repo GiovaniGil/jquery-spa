@@ -1,0 +1,1 @@
+renderContent('../src/components/modal/modal.html', "#modal");
